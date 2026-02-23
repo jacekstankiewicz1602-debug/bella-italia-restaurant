@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* La Dolce Vita Luxury Theme */
+    --background: 222 35% 8%;
+    --foreground: 45 30% 96%;
+    --card: 222 30% 12%;
+    --card-foreground: 45 30% 96%;
+    --popover: 222 30% 10%;
+    --popover-foreground: 45 30% 96%;
+    --primary: 43 72% 55%;
+    --primary-foreground: 222 35% 8%;
+    --secondary: 222 25% 18%;
+    --secondary-foreground: 45 30% 96%;
+    --muted: 222 20% 20%;
+    --muted-foreground: 45 15% 65%;
+    --accent: 43 72% 55%;
+    --accent-foreground: 222 35% 8%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 45 30% 96%;
+    --border: 43 30% 25%;
+    --input: 222 25% 18%;
+    --ring: 43 72% 55%;
+    --radius: 0.25rem;
+    
+    /* Custom colors */
+    --gold: 43 72% 55%;
+    --gold-light: 43 72% 70%;
+    --gold-dark: 43 72% 40%;
+    --midnight: 222 35% 8%;
+    --midnight-light: 222 30% 15%;
+    --ivory: 45 30% 96%;
+    --ivory-muted: 45 15% 80%;
+    --marble: 220 15% 25%;
+  }
+
+  .dark {
+    --background: 222 35% 8%;
+    --foreground: 45 30% 96%;
+    --card: 222 30% 12%;
+    --card-foreground: 45 30% 96%;
+    --popover: 222 30% 10%;
+    --popover-foreground: 45 30% 96%;
+    --primary: 43 72% 55%;
+    --primary-foreground: 222 35% 8%;
+    --secondary: 222 25% 18%;
+    --secondary-foreground: 45 30% 96%;
+    --muted: 222 20% 20%;
+    --muted-foreground: 45 15% 65%;
+    --accent: 43 72% 55%;
+    --accent-foreground: 222 35% 8%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 45 30% 96%;
+    --border: 43 30% 25%;
+    --input: 222 25% 18%;
+    --ring: 43 72% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter Variable", "Inter", system-ui, sans-serif;
+  }
+
+  button:not([disabled]),
+  [role="button"]:not([disabled]) {
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+  
+  .font-elegant {
+    font-family: "Cormorant Garamond", Georgia, serif;
+  }
+  
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent;
+  }
+  
+  .gold-glow {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3), 0 0 60px rgba(212, 175, 55, 0.1);
+  }
+  
+  .gold-border-glow {
+    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.1), 0 0 20px rgba(212, 175, 55, 0.15);
+  }
+  
+  .parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .luxury-overlay {
+    background: linear-gradient(
+      180deg, 
+      rgba(15, 23, 42, 0.7) 0%, 
+      rgba(15, 23, 42, 0.5) 50%,
+      rgba(15, 23, 42, 0.8) 100%
+    );
+  }
+  
+  .marble-texture {
+    background-image: 
+      linear-gradient(135deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+      linear-gradient(225deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+      linear-gradient(45deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+      linear-gradient(315deg, rgba(255,255,255,0.03) 25%, transparent 25%);
+    background-size: 40px 40px;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.animate-fade-in-up-delay-1 {
+  animation: fadeInUp 1s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fadeInUp 1s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-3 {
+  animation: fadeInUp 1s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(43 72% 55% / 0) 0%,
+    hsl(43 72% 65% / 0.5) 50%,
+    hsl(43 72% 55% / 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
